@@ -52,7 +52,7 @@ public class Foxy : MonoBehaviour
     [SerializeField] private int health = 5;
     [SerializeField] private Text healtam;
     [SerializeField] public int score = 0;
-    [SerializeField] private int hscore = PlayerPrefs.GetInt("TotalScore", 0);
+//[SerializeField] private int hscore = PlayerPrefs.GetInt("TotalScore", 0);
     [SerializeField] private Text scam;
 
 
