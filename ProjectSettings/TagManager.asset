@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Collectable
+  - Enemy
+  - Powerup
+  - GroundTag
+  - JumpStopper
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Back_g
+    uniqueID: 2611811021
+    locked: 0
+  - name: mid
+    uniqueID: 2014631953
+    locked: 0
+  - name: Entity
+    uniqueID: 2151900047
+    locked: 0
+  - name: Fore_g
+    uniqueID: 3375569109
+    locked: 0
