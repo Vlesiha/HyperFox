@@ -9,6 +9,7 @@ TagManager:
   - Powerup
   - GroundTag
   - JumpStopper
+  - music
   layers:
   - Default
   - TransparentFX

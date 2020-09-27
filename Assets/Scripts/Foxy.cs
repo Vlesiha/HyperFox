@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using JetBrains.Annotations;
 
 public class Foxy : MonoBehaviour
 {
@@ -52,7 +53,7 @@ public class Foxy : MonoBehaviour
     [SerializeField] private int health = 5;
     [SerializeField] private Text healtam;
     [SerializeField] public int score = 0;
-//[SerializeField] private int hscore = PlayerPrefs.GetInt("TotalScore", 0);
+    public int hscore = 0;
     [SerializeField] private Text scam;
 
 
@@ -60,6 +61,11 @@ public class Foxy : MonoBehaviour
     private State state = State.idle;
 
     private float hurtForce = 10f;
+
+    private void Awake()
+    {
+        hscore= PlayerPrefs.GetInt("TotalScore", 0);
+    }
 
     void Start()
     {
@@ -75,9 +81,8 @@ public class Foxy : MonoBehaviour
             scam.text = PlayerPrefs.GetInt("TotalScore", 0).ToString();
             score = PlayerPrefs.GetInt("TotalScore", 0);
         }
-        //scam.text = score.ToString();
+    //scam.text = score.ToString();
     }
-
     void Update()
     {
 
