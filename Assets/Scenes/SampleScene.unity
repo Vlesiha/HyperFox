@@ -670,6 +670,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20740f1c8bb5e7549b24dc7b6d818c74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource1: {fileID: 152470005}
+  audioSource2: {fileID: 152470004}
 --- !u!4 &152470007
 Transform:
   m_ObjectHideFlags: 0
@@ -1892,9 +1894,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 728010713}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c306a4de531c79449a89a39892a78110, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bf1f1cdba7701d46b34f161f7907239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMusic: {fileID: 152470006}
 --- !u!4 &728010715
 Transform:
   m_ObjectHideFlags: 0
@@ -2260,7 +2263,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 728010714}
-        m_TargetAssemblyTypeName: button, Assembly-CSharp
+        m_TargetAssemblyTypeName: OpenMenu, Assembly-CSharp
         m_MethodName: openmenu
         m_Mode: 1
         m_Arguments:
