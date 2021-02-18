@@ -64,9 +64,11 @@
     <Compile Include="Assets\Scripts\totalScore.cs" />
     <Compile Include="Assets\Scripts\fall.cs" />
     <Compile Include="Assets\Scripts\gravityhelper.cs" />
+    <Compile Include="Assets\Scripts\MainMusic.cs" />
     <Compile Include="Assets\Scripts\FrogBehaviour.cs" />
     <Compile Include="Assets\Scripts\button.cs" />
-    <Compile Include="Assets\Scripts\DontDestroyMusic.cs" />
+    <Compile Include="Assets\Scripts\MenuMusic.cs" />
+    <Compile Include="Assets\Scripts\OpenMenu.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />

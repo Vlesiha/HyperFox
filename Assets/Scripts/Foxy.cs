@@ -7,6 +7,8 @@ using JetBrains.Annotations;
 
 public class Foxy : MonoBehaviour
 {
+
+    // Объявление глобальных переменных
     private Rigidbody2D rb;
     private Animator anim;
     private Collider2D coll;
@@ -67,7 +69,7 @@ public class Foxy : MonoBehaviour
         hscore= PlayerPrefs.GetInt("TotalScore", 0);
     }
 
-    void Start()
+    void Start() //функци вызываемая только на старте уровня
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -81,13 +83,12 @@ public class Foxy : MonoBehaviour
             scam.text = PlayerPrefs.GetInt("TotalScore", 0).ToString();
             score = PlayerPrefs.GetInt("TotalScore", 0);
         }
-    //scam.text = score.ToString();
     }
-    void Update()
+    void Update() //функция, вызываемая на каждом кадре
     {
 
-            CheckIfCanJump();
-        if (Input.GetButtonDown("Jump") /*&& coll.IsTouchingLayers(Ground)*/)
+        CheckIfCanJump();
+        if (Input.GetButtonDown("Jump"))
         {        
 
             Jump2();
@@ -109,7 +110,7 @@ public class Foxy : MonoBehaviour
         CheckSurroundings();
     }
 
-    private void CheckIfWallSliding()
+    private void CheckIfWallSliding() //Проверка на сползание по стенам
     {
         if (isTouchingWall && !isGrounded && rb.velocity.y < 0)
         {
@@ -121,14 +122,14 @@ public class Foxy : MonoBehaviour
         }
     }
 
-    private void CheckSurroundings()
+    private void CheckSurroundings() // проверка окружения (пол и стены)
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, Ground);
 
         isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, Ground);
     }
 
-    private void CheckIfCanJump()
+    private void CheckIfCanJump() // проверка, можно ли прыгать
     {
         if ((isGrounded && (state == State.idle || state == State.running)) || isWallSliding)
         {
@@ -146,7 +147,7 @@ public class Foxy : MonoBehaviour
 
     }
 
-    private void ApplyMovement()
+    private void ApplyMovement() //функция передвижения лиса
     {
         if (isGrounded && state != State.hurt)
         {
@@ -176,7 +177,7 @@ public class Foxy : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) //сбор артефактов и прибавление очков
     {
         if (collision.tag == "Collectable")
         {
@@ -204,7 +205,7 @@ public class Foxy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D enem)
+    private void OnCollisionEnter2D(Collision2D enem) // столкновение с врагами
     {
         if (enem.gameObject.tag == "Enemy")
         {
@@ -242,7 +243,7 @@ public class Foxy : MonoBehaviour
        
 
     }
-    void Flip()
+    void Flip() //переворот лиса в лево и в право
     {
         if (Input.GetAxis("Horizontal") > 0)
         {
@@ -254,13 +255,13 @@ public class Foxy : MonoBehaviour
         }
     }
 
-    void Jump()
+    void Jump() //функция прыжка
     {
         rb.AddForce(transform.up * jumpforce, ForceMode2D.Impulse);
         state = State.jumping;
     }
 
-    private void Jump2()
+    private void Jump2() // функция прыжка
     {
         if (canJump && !isWallSliding)
         {
@@ -285,7 +286,7 @@ public class Foxy : MonoBehaviour
             state = State.jumping;
         }
     }
-    private void StateSwitch()
+    private void StateSwitch() //смена состояния и анимации лиса
     {
         if (state == State.jumping)
         {
@@ -320,16 +321,16 @@ public class Foxy : MonoBehaviour
             state = State.falling;
         }
     }
-    private void FootStep()
+    private void FootStep() //проигрывание звука шагов
     {
         footstep.Play();
     }
-    private void falls()
+    private void falls() //проигрывание звука падения
     {
         fallsound.Play();
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmos() //еще одна проверка окружения
     {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
 
